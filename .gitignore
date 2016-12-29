@@ -66,3 +66,6 @@ conf.INI
 
 # Logs
 *.log
+
+#Database
+*.db
