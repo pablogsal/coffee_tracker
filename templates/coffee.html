@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Coffee Tracker</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{ url_for('static',filename='css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static',filename='css/style.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Coffee Tracker</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A personal coffe tracker</h5>
+      </div>
+      <br><br>
+    </div>
+  </div>
+
+
+{% for coffee in coffees %}
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s6 offset-s3 valign">
+      <div class="z-depth-5">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <center>
+            <span class="card-title"> Coffee number {{coffee.count}} at {{coffee.time.strftime('%H:%M | %Y-%m-%d')}}</span>
+        </center>
+        </div>
+      </div>
+  </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{{ url_for('static',filename='js/materialize.js')}}"></script>
+  <script src="{{ url_for('static',filename='js/init.js')}}"></script>
+
+  </body>
+</html>
